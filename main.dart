@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:myapp3/PageOne.dart';
 
 
@@ -14,7 +15,7 @@ class LogoApp extends StatefulWidget {
 class _LogoAppState extends State<LogoApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       home:PageOne(),
       debugShowCheckedModeBanner: false,
     );

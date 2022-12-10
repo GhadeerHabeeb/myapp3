@@ -1,7 +1,10 @@
 
 
+import 'dart:ffi';
+
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:myapp3/Data.dart';
 import 'package:myapp3/PageOne.dart';
 import 'package:myapp3/animationroute.dart';
@@ -13,7 +16,7 @@ class PageTwe extends StatefulWidget {
   final String img;
   final List<String> images;
   PageTwe({required this.fname,required this.fDescrip,required this.img,required this.images});
-
+  int count=0;
 
   @override
   State<PageTwe> createState() => _PageTweState();
@@ -78,7 +81,30 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
                      onTap: (){
                        Navigator.pop(context);
                      },
-                      child: Icon(Icons.keyboard_arrow_left_rounded,color: Colors.white,size: 50,)),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Icon(Icons.keyboard_arrow_left_rounded,color: Colors.black54,size: 50,),
+                          Container(
+                            height: 50,
+                              width: 50,
+
+                              child: Stack(
+                                children: [
+                                  InkWell(
+                                    onTap: (){
+
+                                    },
+                                      child: Icon(Icons.shopping_basket_outlined,color: Colors.black54,size: 50,)),
+                                  Positioned(
+                                    top: -3,
+                                    right: 0,
+                                    child:Text("${widget.count}",style:TextStyle(color: Colors.red,fontSize: 30,fontWeight: FontWeight.bold), )
+                                  ,)
+                                ],
+                              )),
+                        ],
+                      )),
 
                 )
 
@@ -122,7 +148,7 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
                         child:
 
                         SizedBox(
-                          height: 150,
+                          height: 120,
                           child: ListView.builder
                             (scrollDirection: Axis.horizontal,
 
@@ -167,6 +193,33 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
 
 
   ),
+
+    Padding(
+      padding: const EdgeInsets.only(left: 10,),
+      child: Container(
+
+        child: FloatingActionButton(onPressed: (){
+
+          setState(() {
+            widget.count++;
+            Get.snackbar(
+              "hello there", "you make ${widget.count} request",
+              snackPosition: SnackPosition.TOP,
+              colorText: Colors.white,
+              backgroundColor: Colors.grey,
+              duration: Duration(seconds: 2),
+              isDismissible: true,
+              dismissDirection:DismissDirection.horizontal,
+              forwardAnimationCurve: Curves.easeOutBack,
+              titleText: Text("hello there",style: TextStyle(fontSize: 20,color: Colors.white),),
+              messageText:Text("you make ${widget.count} request",style:TextStyle(fontSize: 20,color: Colors.white)),);
+          });
+        },
+        child:
+        Icon(Icons.add,size: 35,),
+        backgroundColor: Colors.orangeAccent,),
+      ),
+    )
 
      ] ),
 
