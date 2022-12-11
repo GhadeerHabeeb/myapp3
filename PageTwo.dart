@@ -5,6 +5,7 @@ import 'dart:ffi';
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:myapp3/Basket.dart';
 import 'package:myapp3/Data.dart';
 import 'package:myapp3/PageOne.dart';
 import 'package:myapp3/animationroute.dart';
@@ -93,7 +94,7 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
                                 children: [
                                   InkWell(
                                     onTap: (){
-
+                                      Get.to(MyBasket());
                                     },
                                       child: Icon(Icons.shopping_basket_outlined,color: Colors.black54,size: 50,)),
                                   Positioned(
