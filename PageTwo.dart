@@ -94,7 +94,7 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
                                 children: [
                                   InkWell(
                                     onTap: (){
-                                      Get.to(MyBasket());
+                                      Get.to(MyBasket(image:widget.img));
                                     },
                                       child: Icon(Icons.shopping_basket_outlined,color: Colors.black54,size: 50,)),
                                   Positioned(
@@ -214,7 +214,9 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
               forwardAnimationCurve: Curves.easeOutBack,
               titleText: Text("hello there",style: TextStyle(fontSize: 20,color: Colors.white),),
               messageText:Text("you make ${widget.count} request",style:TextStyle(fontSize: 20,color: Colors.white)),);
+
           });
+
         },
         child:
         Icon(Icons.add,size: 35,),
@@ -227,4 +229,5 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
 
     ));
   }
+
 }
