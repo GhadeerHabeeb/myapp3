@@ -93,7 +93,7 @@ class _PageTweState extends State<PageTwe> with SingleTickerProviderStateMixin {
                                 children: [
                                   InkWell(
                                     onTap: (){
-                                         Get.pu
+
                                     },
                                       child: Icon(Icons.shopping_basket_outlined,color: Colors.black54,size: 50,)),
                                   Positioned(
